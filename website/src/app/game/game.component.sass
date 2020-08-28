@@ -1,5 +1,6 @@
 .header
   text-align: center
+
 .wrapper
   display: grid
   grid-template-columns: repeat(6, 150px)
@@ -12,7 +13,28 @@
   text-align: center
   border: 1px solid grey
   border-radius: 5px
+
 .paired
   opacity: .5
+
 .wrapper div:hover
   cursor: pointer
+
+.finished
+  position: absolute
+  width: 200px
+  background-color: #80cbc4
+  border: 1px solid grey
+  border-radius: 5px
+  padding: 20px
+  top: 40vh
+  left: 44vw
+
+.overlay
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: black
+  opacity: .5

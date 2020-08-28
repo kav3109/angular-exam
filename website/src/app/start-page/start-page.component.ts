@@ -24,13 +24,4 @@ export class StartPageComponent implements OnInit {
   setTheme(str: string): void {
     this.selectedTheme = str;
   }
-
-  getTheme(): string {
-    return this.selectedTheme
-  }
-
-  getCapacity(): number {
-    console.log(this.selectedCapacity);
-    return this.selectedCapacity
-  }
 }

@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { GameComponent } from './game/game.component';
-import { FinishComponent } from './finish/finish.component';
 import {routing} from "./app.routing";
 
 @NgModule({
@@ -13,7 +12,6 @@ import {routing} from "./app.routing";
     AppComponent,
     StartPageComponent,
     GameComponent,
-    FinishComponent
   ],
   imports: [
     BrowserModule,

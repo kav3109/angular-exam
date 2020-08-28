@@ -1,15 +1,18 @@
 <div class="header">
-  <button *ngIf="!isStarted" class="btn btn-lg btn-primary mt-2 mr-2" type="submit" (click)="test(); isStarted=true">
+  <button *ngIf="!isStarted" class="btn btn-lg btn-primary mt-2 mr-2" type="submit" (click)="closeCards()">
     Start
   </button>
   <button class="btn btn-lg btn-outline-secondary mt-2" type="submit" [routerLink]="['/start']">Finish</button>
   <hr>
 </div>
-<div class="wrapper front" *ngIf="!isStarted">
-  <div *ngFor="let card of cards"><span>{{card}}</span></div>
-</div>
-<div class="wrapper back" *ngIf="isStarted">
-  <div *ngFor="let card of cards; let i = index" class="back" id={{i}} (click)="checkCard(card)">
-    <span>{{backCard}}</span>
+<div class="wrapper">
+  <div *ngFor="let card of cards; let i = index" (click)="checkCard(card)"
+       [class.paired]="card.isPair"
+       [style.color]="selectedTheme==='light'? 'black':'white'"
+       [style.background]="selectedTheme==='light'? 'white':'black'">
+    <span *ngIf="!card.isActive">{{backCard}}</span>
+    <span *ngIf="card.isActive">{{card.content}}</span>
   </div>
 </div>
+<div class="overlay"></div>
+<div class="finished">Yeeeees! You win!</div>
