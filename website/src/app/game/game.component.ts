@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {StartPageComponent} from "../start-page/start-page.component";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.sass']
 })
-export class GameComponent extends StartPageComponent implements OnInit {
+export class GameComponent implements OnInit {
 
   totalCards: Array<string> = [
     '☀','☭','☦','❄', '⚝', '✪', '❤', '☕', '❉',
@@ -15,18 +15,23 @@ export class GameComponent extends StartPageComponent implements OnInit {
   backCard: string = '⚜';
   cards: Array<string>;
   isStarted: boolean = false;
-  _selectedCapacity: number = 12;// TODO get from start page
+  selectedCapacity: number = 6;// TODO get from start page
   cardsInGame: Array<string>;
   cardCompare: string;
 
 
-  constructor() {
-    super();
-  }
+  constructor(public router: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.setCardsInGame(this._selectedCapacity);
-    this.getRandomCards(this.cardsInGame);
+    // this.setCardsInGame(this._selectedCapacity);
+    this.router.queryParams.subscribe(params => {
+      this.selectedCapacity = +params['capacity'];
+      console.log(this.selectedCapacity);
+      console.log(params);
+      this.setCardsInGame(this.selectedCapacity);
+      this.getRandomCards(this.cardsInGame);
+    });
+
   }
 
   getRandomCards(arrCards: Array<string>): void {

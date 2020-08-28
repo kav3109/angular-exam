@@ -19,7 +19,9 @@
           <label class="form-check-label" for="{{theme}}">{{theme}}</label>
         </div>
       </div>
-      <button class="btn btn-lg btn-primary btn-block mt-2" type="submit" [routerLink]="['/game']" (click)="getCapacity()">Start Game</button>
+      <button class="btn btn-lg btn-primary btn-block mt-2" type="submit"
+              [queryParams]="{ capacity: selectedCapacity, theme: selectedTheme }"
+              [routerLink]="['/game']" (click)="getCapacity()">Start Game</button>
     </div>
   </div>
   <!-- Background -->
