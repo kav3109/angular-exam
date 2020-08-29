@@ -14,5 +14,9 @@
     <span *ngIf="card.isActive">{{card.content}}</span>
   </div>
 </div>
-<div class="overlay"></div>
-<div class="finished">Yeeeees! You win!</div>
+<div class="overlay" *ngIf="isFinished" (click)="isFinished=false; efforts=0;"></div>
+<div [ngStyle]="{transition: 'all 3s ease-out'}" class="finished" *ngIf="isFinished" >
+  <img src="https://thumbs.dreamstime.com/b/you-win-red-rubber-stamp-over-white-background-86701663.jpg" alt="Win">
+  <br><span>It takes: {{(endTime-startTime) | time}}</span>
+  <br><span>Count of efforts: {{ efforts }}</span>
+</div>

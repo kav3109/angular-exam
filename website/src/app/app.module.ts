@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { GameComponent } from './game/game.component';
 import {routing} from "./app.routing";
+import { TimePipe } from './game/time.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     StartPageComponent,
     GameComponent,
+    TimePipe,
   ],
   imports: [
     BrowserModule,
