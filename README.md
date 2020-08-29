@@ -1,2 +1,2 @@
 # angular-exam
-angular project
+angular project "Memory Matching Game"
